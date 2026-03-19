@@ -1,0 +1,11 @@
+{
+  "id": "test",
+  "pck_name": "test",
+  "name": "更强的储君",
+  "author": "硬币落地无声",
+  "description": "加强储君强度的mod，增加了储君的铸剑与星辉的联动性，使其在游戏中更具乐趣。",
+  "version": "0.0.1",
+  "has_pck": true,
+  "has_dll": true,
+  "affects_gameplay": true
+}

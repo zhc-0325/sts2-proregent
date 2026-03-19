@@ -1,0 +1,96 @@
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities;
+using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.ValueProps;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Rooms;
+
+namespace Test.Scripts.Relics;
+
+public class TestRelic : RelicModel
+{
+    // 稀有度
+    public override RelicRarity Rarity => RelicRarity.Common;
+
+    // 小图标
+    public override string PackedIconPath => $"res://test/images/relics/{Id.Entry.ToLowerInvariant()}.png";
+    // 轮廓图标
+    protected override string PackedIconOutlinePath => $"res://test/images/relics/{Id.Entry.ToLowerInvariant()}.png";
+    // 大图标
+    protected override string BigIconPath => $"res://test/images/relics/{Id.Entry.ToLowerInvariant()}.png";
+    private int CurrentActIndex 
+    {
+        get
+        {
+            if (base.Owner == null) return 1;
+            return base.Owner.RunState?.CurrentActIndex+1 ?? 0;
+        }
+    }
+
+     protected override IEnumerable<DynamicVar> CanonicalVars
+    {
+        get
+        {
+
+            yield return new DynamicVar("CurrentActIndex", 1m);
+        }
+    }
+    public override Task AfterRoomEntered(AbstractRoom enteredRoom)
+    {
+
+        if (base.Owner != null)
+        {
+
+            int latestActIndex = base.Owner.RunState?.CurrentActIndex ?? 0;
+            base.DynamicVars["CurrentActIndex"].BaseValue = (decimal)latestActIndex;
+            InvokeDisplayAmountChanged();
+            Flash();
+        }
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterStarsSpent(int amount, Player spender)
+    {
+        if (spender != base.Owner || amount <= 0)
+        {
+            return;
+        }
+        Flash(); 
+
+        await ForgeCmd.Forge(amount * CurrentActIndex, base.Owner, this);
+
+
+        if (base.Owner != null)
+        {
+            base.DynamicVars["CurrentActIndex"].BaseValue = (decimal)CurrentActIndex;
+            InvokeDisplayAmountChanged();
+        }
+
+        if (amount >= 3)
+        {
+            await UpgradeAllSovereignBlade(spender);
+        }
+    }
+    private async Task UpgradeAllSovereignBlade(Player player)
+    {
+        if (player?.PlayerCombatState?.AllCards == null)
+        {
+            return;
+        }
+        foreach (CardModel card in player.PlayerCombatState.AllCards)
+        {
+            if (card is SovereignBlade && card.IsUpgradable)
+            {
+                CardCmd.Upgrade(card);
+                Flash();
+            }
+        }
+    }
+}
