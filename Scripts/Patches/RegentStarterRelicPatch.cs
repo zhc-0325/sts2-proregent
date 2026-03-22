@@ -37,7 +37,7 @@ public static class RegentStarterRelicPatch
 
         var mutableRelics = __result.ToList();
 
-        var starBlade = ModelDb.Relic<starBlade>();
+        var starBlade = ModelDb.Relic<StarBlade>();
 
         if (starBlade == null)
         {

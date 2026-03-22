@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace ProRegent.Scripts.Relics;
 
-public class starBlade : RelicModel
+public class StarBlade : RelicModel
 {
     // 稀有度
     public override RelicRarity Rarity => RelicRarity.Common;
@@ -26,13 +26,16 @@ public class starBlade : RelicModel
     // 大图标
     protected override string BigIconPath => $"res://ProRegent/images/relics/{Id.Entry.ToLowerInvariant()}.png";
     private int CurrentActIndex 
+{
+    get
     {
-        get
+        if (base.Owner == null || base.Owner.RunState == null)
         {
-            if (base.Owner == null) return 1;
-            return base.Owner.RunState?.CurrentActIndex+1 ?? 0;
+            return 1;
         }
+        return base.Owner.RunState.CurrentActIndex + 1;
     }
+}
 
      protected override IEnumerable<DynamicVar> CanonicalVars
     {
@@ -43,41 +46,31 @@ public class starBlade : RelicModel
         }
     }
     public override Task AfterRoomEntered(AbstractRoom enteredRoom)
+{
+    if (base.Owner != null)
     {
-
-        if (base.Owner != null)
-        {
-
-            int laProRegentActIndex = base.Owner.RunState?.CurrentActIndex ?? 0;
-            base.DynamicVars["CurrentActIndex"].BaseValue = (decimal)laProRegentActIndex;
-            InvokeDisplayAmountChanged();
-            Flash();
-        }
-        return Task.CompletedTask;
+        base.DynamicVars["CurrentActIndex"].BaseValue = (decimal)CurrentActIndex;
+        InvokeDisplayAmountChanged();
+        Flash();
     }
+    return Task.CompletedTask;
+}
 
     public override async Task AfterStarsSpent(int amount, Player spender)
+{
+    if (spender != base.Owner || amount <= 0)
     {
-        if (spender != base.Owner || amount <= 0)
-        {
-            return;
-        }
-        Flash(); 
-
-        await ForgeCmd.Forge(amount * CurrentActIndex, base.Owner, this);
-
-
-        if (base.Owner != null)
-        {
-            base.DynamicVars["CurrentActIndex"].BaseValue = (decimal)CurrentActIndex;
-            InvokeDisplayAmountChanged();
-        }
-
-        if (amount >= 3)
-        {
-            await UpgradeAllSovereignBlade(spender);
-        }
+        return;
     }
+    Flash(); 
+
+    await ForgeCmd.Forge(amount * CurrentActIndex, base.Owner, this);
+
+    if (amount >= 3)
+    {
+        await UpgradeAllSovereignBlade(spender);
+    }
+}
     private async Task UpgradeAllSovereignBlade(Player player)
     {
         if (player?.PlayerCombatState?.AllCards == null)
