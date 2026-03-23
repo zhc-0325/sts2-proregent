@@ -31,7 +31,7 @@ public static class RegentStarterRelicPatch
     {
         if (__result == null)
         {
-            Log.Warn("摄政王初始遗物列表为空，无法添加星刃");
+            Log.Warn("储君初始遗物列表为空，无法添加");
             return;
         }
 
@@ -41,12 +41,12 @@ public static class RegentStarterRelicPatch
 
         if (starBlade == null)
         {
-            Log.Error("星刃实例为空！请检查是否注册到RegentRelicPool");
+            Log.Error("实例为空！请检查是否注册到RegentRelicPool");
             return;
         }
         if (mutableRelics.Contains(starBlade))
         {
-            Log.Debug("摄政王已拥有星刃，无需重复添加");
+            Log.Debug("储君已拥有星刃，无需重复添加");
             return;
         }
 

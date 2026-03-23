@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2jimp6b1hd2p"
-path="res://.godot/imported/flat_dog.png-fe917599dd4c41a2e9c075281c232692.ctex"
+uid="uid://bkapk2johcmh0"
+path="res://.godot/imported/terror_minion.png-a672ffbd265cbadf60707713c4ed6baa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ProRegent/images/cards/flat_dog.png"
-dest_files=["res://.godot/imported/flat_dog.png-fe917599dd4c41a2e9c075281c232692.ctex"]
+source_file="res://ProRegent/images/cards/terror_minion.png"
+dest_files=["res://.godot/imported/terror_minion.png-a672ffbd265cbadf60707713c4ed6baa.ctex"]
 
 [params]
 

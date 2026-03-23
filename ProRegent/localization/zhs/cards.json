@@ -1,4 +1,4 @@
 {
-    "FLAT_DOG.title": "模糊扁狗",
-    "FLAT_DOG.description": "一只被opencv诅咒的小狗，给予一名敌人等于其当前血量层灾厄。"
+    "TERROR_MINION.title": "骇人仆从",
+    "TERROR_MINION.description": "施加X/{Denominator:diff()}倍敌人当前生命值层数的灾厄。"
 }

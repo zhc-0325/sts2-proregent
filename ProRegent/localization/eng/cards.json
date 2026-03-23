@@ -1,0 +1,4 @@
+{
+    "TERROR_MINION.title": "TerrorMinion",
+    "TERROR_MINION.description": "Apply Doom equal to X / {Denominator:diff()} * target's current Health."
+}
