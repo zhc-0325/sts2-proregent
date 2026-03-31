@@ -1,13 +1,7 @@
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.ValueProps;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Rooms;
@@ -16,14 +10,9 @@ namespace ProRegent.Scripts.Relics;
 
 public class StarBlade : RelicModel
 {
-    // 稀有度
     public override RelicRarity Rarity => RelicRarity.Common;
-
-    // 小图标
     public override string PackedIconPath => $"res://ProRegent/images/relics/{Id.Entry.ToLowerInvariant()}.png";
-    // 轮廓图标
     protected override string PackedIconOutlinePath => $"res://ProRegent/images/relics/{Id.Entry.ToLowerInvariant()}.png";
-    // 大图标
     protected override string BigIconPath => $"res://ProRegent/images/relics/{Id.Entry.ToLowerInvariant()}.png";
     private int CurrentActIndex 
 {

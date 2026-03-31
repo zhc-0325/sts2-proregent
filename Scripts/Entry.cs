@@ -15,7 +15,8 @@ public class Entry
     public static void Init()
     {
          ModHelper.AddModelToPool<ColorlessCardPool, TerrorMinion>();
-         ModHelper.AddModelToPool<SharedRelicPool, StarBlade>();
+         ModHelper.AddModelToPool<RegentRelicPool, StarBlade>();
+         ModHelper.AddModelToPool<RegentRelicPool, EnLoyal>();
         _harmony = new Harmony("sts2.reme.ProRegentmod");
         _harmony.PatchAll();
         Log.Debug("Mod initialized!");

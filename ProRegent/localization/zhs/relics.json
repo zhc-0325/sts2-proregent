@@ -1,5 +1,8 @@
 {
   "STAR_BLADE.title": "铸星为刃",
   "STAR_BLADE.description": "消耗{singleStarIcon}时，获得消耗数量*[blue]{CurrentActIndex}[/blue]的锻造值（倍率为当前阶段数）。单次消耗大于等于[blue]3[/blue]个{singleStarIcon}时，本场战斗升级你的所有君主之剑。",
-  "STAR_BLADE.flavor": "我进塔！"
+  "STAR_BLADE.flavor": "我进塔！",
+  "EN_LOYAL.title": "巨剑巨忠",
+  "EN_LOYAL.description": "当你打出[green]君主之剑[/green]时，不进入弃牌堆而是进入抽牌堆。",
+  "EN_LOYAL.flavor": "无"
 }

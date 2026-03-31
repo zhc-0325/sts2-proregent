@@ -1,5 +1,8 @@
 {
   "STAR_BLADE.title": "StarBlade",
   "STAR_BLADE.description": "When {singleStarIcon} is spent,gain Forging equal to the number spent * [blue]{CurrentActIndex}[/blue] (multiplier equals current act number).When 3 or more {singleStarIcon} are spent in a single use, upgrade all your Sovereign Blade cards for the rest of combat.",
-  "STAR_BLADE.flavor": "I enter the spire!"
+  "STAR_BLADE.flavor": "I enter the spire!",
+  "EN_LOYAL.title": "En Loyal",
+  "EN_LOYAL.description": "When you play a [green]Sovereign Blade[/green], it goes into your draw pile instead of the discard pile.",
+  "EN_LOYAL.flavor": "None"
 }
