@@ -1,8 +1,8 @@
 {
-  "STAR_BLADE.title": "StarBlade",
-  "STAR_BLADE.description": "When {singleStarIcon} is spent,gain Forging equal to the number spent * [blue]{CurrentActIndex}[/blue] (multiplier equals current act number).When 3 or more {singleStarIcon} are spent in a single use, upgrade all your Sovereign Blade cards for the rest of combat.",
-  "STAR_BLADE.flavor": "I enter the spire!",
+  "STAR_BLADE.title": "Star Blade",
+  "STAR_BLADE.description": "When you spend {singleStarIcon}, gain Forging equal to the amount spent multiplied by [blue]{CurrentActIndex}[/blue] (multiplier is the current act number). When spending 3 or more {singleStarIcon} in one use, upgrade all your Sovereign Blades for the rest of combat.",
+  "STAR_BLADE.flavor": "I enter the Spire!",
   "EN_LOYAL.title": "En Loyal",
-  "EN_LOYAL.description": "When you play a [green]Sovereign Blade[/green], it goes into your draw pile instead of the discard pile.",
+  "EN_LOYAL.description": "After you play a [green]Sovereign Blade[/green], put it on the bottom of your draw pile. Draw a card. If that card has the [orange]Forging[/orange] keyword, reduce the cost of your [green]Sovereign Blades[/green] by 1 for the rest of combat.",
   "EN_LOYAL.flavor": "None"
 }

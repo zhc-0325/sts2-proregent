@@ -1,4 +1,4 @@
 {
     "TERROR_MINION.title": "骇人仆从",
-    "TERROR_MINION.description": "施加X/{Denominator:diff()}倍敌人当前生命值层数的灾厄。"
+    "TERROR_MINION.description": "施加消耗{singleStarIcon}X/{Denominator:diff()}倍敌人当前生命值层数的灾厄。获得消耗能量X*消耗{singleStarIcon}X的星辉。"
 }
