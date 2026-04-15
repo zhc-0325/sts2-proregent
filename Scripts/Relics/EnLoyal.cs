@@ -18,7 +18,6 @@ public class EnLoyal : RelicModel
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choicecontext,CardPlay cardPlay)
 	{
-		Random random = new Random();
 		if (cardPlay.Card is SovereignBlade)
 		{
 			Flash();

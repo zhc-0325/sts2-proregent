@@ -31,7 +31,7 @@ public class TerrorMinion : CardModel
         }
     }
     
-    public TerrorMinion() : base(energyCost, type, CardRarity.Uncommon, targetType, shouldShowInCardLibrary)
+    public TerrorMinion() : base(energyCost, type, CardRarity.Rare, targetType, shouldShowInCardLibrary)
     {
         
     }
