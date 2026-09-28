@@ -28,19 +28,10 @@ README 中的名称与描述文本，均以仓库内的本地化文件为准，�
 #### 骇人仆从（TerrorMinion）
 
 - 类型：技能
-- 稀有度：非凡
+- 稀有度：稀有
 - 费用：`X`
 - 目标：单体敌人
-- 中文描述：`施加消耗{singleStarIcon}X/{Denominator:diff()}倍敌人当前生命值层数的灾厄。获得消耗能量X*消耗{singleStarIcon}X的星辉。`
-- 英文描述：`Apply {singleStarIcon}X/{Denominator:diff()} times the enemy's current Health in Doom stacks. Gain X* {singleStarIcon}X Starlight equal to the Energy cost.`
-
-代码中的实际结算方式为：
-
-- 分母初始值为 `20`
-- 升级后分母变为 `10`
-- 先计算 `敌人当前生命 / 分母`，再向上取整
-- 最终施加的 `Doom` 数值为“向上取整结果 × 星辉 X 值”
-- 额外获得 `能量 X 值 × 星辉 X 值` 的星辉
+- 中文描述：获得 `能量 X 值+1（2） × 星辉 X 值` 的星辉
 
 ### 遗物
 
